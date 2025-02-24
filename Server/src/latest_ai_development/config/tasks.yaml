@@ -4,7 +4,7 @@ prompt_engineer_task:
     Negative prompt: "{negative_prompt}"
     For the selected AI model: {selected_model}
     Image Type: {image_type}
-    Dimensions: {dimensions}
+    Dimensions: {image_dimensions}
 
     Your task is to:
     1. Analyze the original prompt and image type requirements

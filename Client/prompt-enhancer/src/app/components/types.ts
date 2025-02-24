@@ -21,9 +21,14 @@ export interface Inputs {
     image_dimension: Dimensions[],
 }
 
-export interface ResultProps 
-{
-    data: Inputs | null
+export interface ResultProps {
+    data: {
+        enhanced_prompt: string;  // ✅ Add enhanced_prompt
+        negative_prompt: string;
+        selected_model: string;
+        image_type: string;
+        image_dimensions: string;
+    } | null;
 }
 
 export interface PromptInputData {

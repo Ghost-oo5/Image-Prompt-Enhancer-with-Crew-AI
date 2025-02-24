@@ -3,16 +3,38 @@ import React, { useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Inputs } from './types'
 import { PromptInputData } from './types'
+import axios from 'axios'
 
 
-const PromptInputs = ({onsubmit}:PromptInputData) => {
+const PromptInputs = ({ onsubmit }: PromptInputData) => {
+    const [loading, setLoading] = useState(false)
     const [negativePrompt, setNegativePrompt] = useState(false)
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>()
     const onFormSubmit: SubmitHandler<Inputs> = (data) => {
-        console.log(data)
-        reset();
-        setNegativePrompt(false)
-        onsubmit(data);
+        setLoading(true);
+
+        const requestData = {
+            prompt: data.prompt,
+            negative_prompt: data.negative_prompt || "",  // ✅ Set default empty string if missing
+            selected_model: data.image_model,  // ✅ Rename `image_model` to `selected_model`
+            image_type: data.image_type,
+            image_dimensions: data.image_dimension || "square" // ✅ Ensure `image_dimensions` is always sent
+        };
+
+        const response = axios.post('http://127.0.0.1:8000/api/enhance', requestData).then((resp) => {
+            console.log(resp.data)
+            onsubmit(resp.data)
+        }).catch((error) => {
+            console.log("Error from backend", error)
+        }
+        ).finally(() => {
+            setLoading(false)
+            reset();
+            setNegativePrompt(false)
+        })
+
+
+
     }
 
     return (
@@ -22,7 +44,7 @@ const PromptInputs = ({onsubmit}:PromptInputData) => {
                     <div className='flex flex-col gap-3'>
                         <div className='flex'>
                             <input className='inputfield' type="text" placeholder='Enter your prompt here...' {...register("prompt", { required: true })} />
-                            <button type="submit" className=' rounded-r-md bg-blue-500 p-2 text-white'>Generate</button>
+                            <button type="submit" className=' rounded-r-md bg-blue-500 p-2 text-white'>{loading ? "Generating..." : "Generate"}</button>
                         </div>
                         {errors.prompt && <p className='text-red-500'>This field is required</p>}
                         <div className='flex items-centerv gap-3'>
