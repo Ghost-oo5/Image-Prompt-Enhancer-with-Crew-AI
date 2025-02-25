@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Inputs, Models, ImageTypes, Dimensions } from './types'
 import { PromptInputData } from './types'
@@ -10,10 +10,18 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
     const [negativePrompt, setNegativePrompt] = useState(false)
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>()
 
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
     const onFormSubmit: SubmitHandler<Inputs> = (data) => {
         setLoading(true);
 
-        axios.post('http://127.0.0.1:8000/api/enhance', data)
+        if (!apiUrl) {
+            console.error("API URL is not defined");
+            setLoading(false);
+            return; // Exit if apiUrl is not defined
+        }
+
+        axios.post(apiUrl, data)
             .then((resp) => {
                 console.log(resp.data);
                 onsubmit(resp.data);
