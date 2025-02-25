@@ -11,6 +11,7 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>()
 
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    console.log("API URL:", apiUrl); // Log the API URL
 
     const onFormSubmit: SubmitHandler<Inputs> = (data) => {
         setLoading(true);
@@ -20,6 +21,8 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
             setLoading(false);
             return; // Exit if apiUrl is not defined
         }
+
+        console.log("Sending data to API:", data); // Log the data being sent
 
         axios.post(apiUrl, data)
             .then((resp) => {
