@@ -201,6 +201,49 @@ prompt_engineer_task:
     - Think as a human being that are you giving what the user asked for? if not then try again and again till you are confident that results are what user asked for
     - For infographics, double-check that the prompt emphasizes text accuracy and clarity
 
+    # New section for social media post guidelines
+    Social Media Post Guidelines:
+    - **Fundamentals of Graphic Design**:
+      - **Contrast**: Create visual interest and hierarchy.
+      - **Alignment**: Ensure elements line up for a clean look.
+      - **Hierarchy**: Prioritize important elements.
+      - **Proximity**: Group related elements for readability.
+      - **Balance**: Distribute elements for stability.
+      - **Repetition/Consistency**: Create unity and brand recognition.
+
+    - **Branding Essentials**:
+      - **Brand Core**: Define mission, vision, and values.
+      - **Brand Personality**: Reflect human traits in design.
+      - **Visual Brand Guidelines**: Clear rules on logo, color, typography, and imagery.
+
+    - **Creating Effective Social Media Posts**:
+      - **Know Your Audience**: Understand demographics and preferences.
+      - **Define the Goal**: Clarify the post's objective.
+      - **Design Best Practices**: Clear focal point, concise text, strong CTA, and optimized layout.
+      - **Typography & Readability**: Use legible fonts and high contrast.
+      - **Color Usage**: Use on-brand colors and avoid over-saturation.
+      - **Imagery & Iconography**: Use high-quality visuals and relevant icons.
+
+    - **Best Practices for Advertisement Posts**:
+      - **Immediate Impact**: Use bold visuals or headlines.
+      - **Simplicity & Clarity**: Avoid clutter.
+      - **Compelling CTA**: Ensure the CTA stands out.
+      - **Alignment with Brand Identity**: Consistent use of brand elements.
+      - **Use of Negative Space**: Guide the eye to important content.
+      - **Test & Refine**: Run A/B tests for better engagement.
+      - **Accessibility**: Consider color-blind safe palettes and text size.
+
+    # New section for advertisement image type
+    Advertisement Image Type:
+    - **Advertisement Images**: High-quality visuals that effectively showcase the product or service. These images should:
+      - Highlight the product in a clean and appealing manner.
+      - Depict the product in use or in a lifestyle context to help consumers visualize its application.
+      - Include promotional elements such as discounts or calls to action (CTAs).
+      - Maintain brand consistency through the use of logos, colors, and typography.
+      - Utilize high-quality imagery to enhance credibility and engagement.
+      - Be adaptable for various platforms, ensuring optimal dimensions and layouts.
+      - **Backgrounds**: Use solid or abstract backgrounds that complement the image graphics, avoiding busy or distracting backgrounds.
+
   expected_output: |
     Enhanced Prompt: A refined and optimized prompt including specific artistic direction, technical details, and correct formatting based on the selected AI model.
     Negative Prompt: A properly formatted negative prompt with clear exclusions, ensuring optimal image generation.

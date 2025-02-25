@@ -16,6 +16,9 @@ prompt_engineer:
     - Leonardo AI: Structured templates, art inspirations, technical specifications
     - DALL-E: Concise, adjective-driven descriptions, static scenes
     - Adobe Firefly: Creative concepts, text effects, color palettes
+    - **Graphic Design Principles**: Understanding of contrast, alignment, hierarchy, and balance.
+    - **Branding Essentials**: Knowledge of brand identity, personality, and visual guidelines.
+    - **Social Media Best Practices**: Ability to create effective posts that resonate with target audiences.
   llm: groq/deepseek-r1-distill-llama-70b
 
 # image_generator:

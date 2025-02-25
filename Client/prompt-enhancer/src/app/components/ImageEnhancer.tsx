@@ -14,7 +14,6 @@ const ImageEnhancer = () => {
         // Append the new result to the end of the array
         setSubmittedData(prev => [data, ...prev])
         setHistory(prev => [data, ...prev])
-        console.log('history', history)
     }
 
     return (
@@ -22,7 +21,7 @@ const ImageEnhancer = () => {
             <div className='w-96 max-sm:hidden'><HistorySidebar history={history} /></div>
             <div className='w-full pl-5 flex flex-col gap-5'>
                 <PromptInputs onsubmit={handleSubmitData} />
-                <div className='bg-gray-300 min-h-dvh p-5 rounded-md'>
+                <div className='bg-[#232934] min-h-dvh p-5 rounded-md'>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                         {submittedData.map((data, index) => (
                             <Results key={index} data={data} />
