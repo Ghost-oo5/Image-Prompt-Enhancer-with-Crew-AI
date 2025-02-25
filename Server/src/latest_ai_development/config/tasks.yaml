@@ -53,8 +53,8 @@ prompt_engineer_task:
 
     Stable Diffusion:
     - Create longer, detailed prompts
-    - Include negative prompts in [negative_prompt] format
-    - Use --quality and --CFG parameters
+    - Include negative prompts in a dedicated field (e.g., "negative_prompt: blurry, low-quality")
+    - Use a sufficiently high **CFG scale** (e.g., 7–12) and enough **sampling steps** to achieve desired detail. If your interface allows custom parameters, include them accordingly.
 
     Leonardo AI:
     - Create a single, flowing paragraph for the main prompt
@@ -85,7 +85,7 @@ prompt_engineer_task:
 
     Adobe Firefly:
     - Use creative, imaginative concepts
-    - Include negative elements with "exclude" or "without" keywords
+    - Include negative elements inline with "exclude" or "without" (e.g., "A portrait --exclude text")
     - Include text effects and color palettes
     - Optimize for Adobe tool integration
 
