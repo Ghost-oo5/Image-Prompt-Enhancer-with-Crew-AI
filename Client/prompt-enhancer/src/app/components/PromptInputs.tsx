@@ -9,9 +9,7 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
     const [loading, setLoading] = useState(false)
     const [negativePrompt, setNegativePrompt] = useState(false)
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>()
-
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    console.log("API URL:", apiUrl); // Log the API URL
 
     const onFormSubmit: SubmitHandler<Inputs> = (data) => {
         setLoading(true);
@@ -21,8 +19,6 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
             setLoading(false);
             return; // Exit if apiUrl is not defined
         }
-
-        console.log("Sending data to API:", data); // Log the data being sent
 
         axios.post(apiUrl, data)
             .then((resp) => {
@@ -55,7 +51,6 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
                         </div>
                         {negativePrompt && <input className='inputfield2' type="text" placeholder='Add negative prompt here...' {...register("negative_prompt", { required: false })} />}
                     </div>
-                    {/* Dynamic Dropdowns */}
                     <div className='flex gap-3 max-sm:flex-col'>
                         {/* Models Dropdown */}
                         <select id="model" className='Dropdown' {...register("selected_model", { required: false })}>
@@ -64,16 +59,12 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
                                 <option key={key} value={key}>{key}</option>
                             ))}
                         </select>
-
-                        {/* Image Types Dropdown */}
                         <select id="imageType" className='Dropdown' {...register('image_type', { required: false })}>
                             <option value="">Select Image Type</option>
                             {Object.keys(ImageTypes).map((key) => (
                                 <option key={key} value={key}>{key.replace(/_/g, " ")}</option>
                             ))}
                         </select>
-
-                        {/* Dimensions Dropdown */}
                         <select id="dimensions" className='Dropdown' {...register('image_dimensions', { required: false })}>
                             <option value="">Select Dimensions</option>
                             {Object.keys(Dimensions).map((key) => (

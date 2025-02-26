@@ -1,7 +1,7 @@
 prompt_engineer_task:
   description: >
     Enhance this prompt: "{prompt}"
-    Negative prompt: "{negative_prompt}"
+    Negative prompt: "{negative_prompt} - Do not create infographics."
     For the selected AI model: {selected_model}
     Image Type: {image_type}
     Dimensions: {image_dimensions}
@@ -31,6 +31,15 @@ prompt_engineer_task:
     - Dreamlike/Fantasy: Focus on mood, atmosphere, and impossible elements
     - Glitch/Cyberpunk: Include digital artifacts, neon elements
     - Geometric/Minimalist: Emphasize shapes, patterns, and simplicity
+
+    Graphics Design:
+    - **Focus**: Centered subjects with dynamic poses or engaging layouts.
+    - **Color Scheme**: Use vibrant and contrasting colors to attract attention.
+    - **Background**: Should complement the main subject, using gradients or subtle patterns.
+    - **Text Elements**: Clear, bold, and easy to read; should convey the message effectively.
+    - **Style**: Combine digital art with graphic design principles, ensuring a clean and organized layout.
+    - **Call to Action**: Prominent and visually distinct to encourage user interaction.
+    - **Visual Elements**: Incorporate relevant icons or graphics that enhance the message.
 
     Informational & Infographics:
     - Diagrams & Charts: Request clear layout and data visualization
@@ -244,10 +253,33 @@ prompt_engineer_task:
       - Be adaptable for various platforms, ensuring optimal dimensions and layouts.
       - **Backgrounds**: Use solid or abstract backgrounds that complement the image graphics, avoiding busy or distracting backgrounds.
 
+    # Advertisement Image Guidelines
+    Advertisement Image Guidelines:
+    - **Understand Platform-Specific Requirements**: Different social media platforms have specific requirements for ad sizes, aspect ratios, and text-to-image ratios.
+    - **Maintain Consistent Visual Identity**: Ensure that your ad design is consistent with your brand's visual identity, including color palette, typography, and imagery.
+    - **Use Clear and Compelling Messaging**: Craft short, concise, and attention-grabbing ad copy that quickly conveys the value proposition.
+    - **Utilize High-Quality Images and Graphics**: Use high-quality images and graphics relevant to your ad's message.
+    - **Incorporate Video for Higher Engagement**: Incorporate video content into your social media ads to significantly increase engagement rates.
+    - **Experiment with Different Formats**: Experiment with different formats such as videos, carousels, and interactive elements.
+    - **Stay Updated with Design Trends**: Stay updated with the latest design trends to ensure your visuals feel modern and relevant.
+    - **Test Different Visual Strategies**: Use A/B testing to determine which designs and messages are most effective.
+    - **Be Detailed in Your Prompts**: Be as detailed as possible in your prompts for AI tools.
+    - **Customize and Iterate**: Customize generated templates or images further to align with your brand identity.
+    - **Do Not Create Infographics**: When the advertisement type is selected, do not create infographics. Focus solely on advertisement guidelines.
+
+    Blog Thumbnail:
+      - **Focus**: Create a visually striking image that encapsulates the essence of the blog post.
+      - **Text Overlay**: Include the blog title or a catchy phrase, ensuring it is legible and stands out against the background.
+      - **Color Scheme**: Use colors that align with the blog's branding while ensuring high contrast for readability.
+      - **Imagery**: Incorporate relevant visuals that represent the content of the blog, such as illustrations, photographs, or graphics.
+      - **Aspect Ratio**: Typically use a 16:9 ratio for optimal display on most platforms.
+      - **Call to Action**: If applicable, include a subtle call to action to encourage clicks.
+      - **Branding**: Ensure the blog's logo or branding elements are subtly integrated into the design.
+
   expected_output: |
-    Enhanced Prompt: A refined and optimized prompt including specific artistic direction, technical details, and correct formatting based on the selected AI model.
+    A refined and optimized prompt including specific artistic direction, technical details, and correct formatting based on the selected AI model.
     Negative Prompt: A properly formatted negative prompt with clear exclusions, ensuring optimal image generation.
-    Model-Specific Parameters: Additional quality settings, aspect ratio, and other necessary technical details tailored for the selected model.
+    Additional quality settings, aspect ratio, and other necessary technical details tailored for the selected model.
   agent: prompt_engineer
 
 # image_generator_task:

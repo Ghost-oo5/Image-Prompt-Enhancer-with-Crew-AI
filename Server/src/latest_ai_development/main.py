@@ -77,7 +77,7 @@ def get_image_type_choice(dimensions):
     
     suggested_types = {
         "1:1": ["Instagram Posts", "Profile Pictures", "Social Media Cards"],
-        "16:9": ["YouTube Thumbnails", "Blog Headers", "Presentation Slides"],
+        "16:9": ["YouTube Thumbnails", "Blog Headers", "Presentation Slides", "Blog Thumbnail"],
         "4:5": ["Instagram Stories", "Pinterest Pins", "Mobile Posters"],
         "2:1": ["LinkedIn Banners", "Twitter Headers", "Email Headers"]
     }
@@ -119,6 +119,8 @@ def get_image_type_choice(dimensions):
         print("   - Infographics")
         print("   - Product Presentations")
         print("   - Corporate Banners")
+        print("   - Graphics Design")
+        print("   - Blog Thumbnail")
         
         try:
             main_choice = int(input("\nEnter main category (1-5): "))
@@ -131,7 +133,7 @@ def get_image_type_choice(dimensions):
                 2: ["Photorealistic", "Hyperrealistic", "AI-Enhanced Realism"],
                 3: ["Illustrations", "Concept Art", "Cartoon & Anime", "Pixel Art", "Oil Painting/Watercolor/Sketch"],
                 4: ["Dreamlike / Fantasy", "Glitch / Cyberpunk", "Geometric / Minimalist"],
-                5: ["Logos & Branding", "UI/UX Mockups", "Infographics", "Product Presentations", "Corporate Banners"]
+                5: ["Logos & Branding", "UI/UX Mockups", "Infographics", "Product Presentations", "Corporate Banners", "Graphics Design", "Blog Thumbnail"]
             }
             
             print("\nSelect specific style:")

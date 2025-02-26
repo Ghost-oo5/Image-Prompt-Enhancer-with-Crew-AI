@@ -28,6 +28,8 @@ export const ImageTypes = {
     ThreeDRender: "3D Render",
     AiGeneratedFace: "AI-Generated Face",
     Advertisement: "Advertisement",
+    GraphicsDesign: "Graphics Design",
+    BlogThumbnail: "Blog Thumbnail",
 } as const;
 
 export const Dimensions = {
@@ -44,7 +46,8 @@ export interface Inputs {
     enhanced_prompt: string;
     selected_model: string;
     image_dimensions: keyof typeof Dimensions;
-    original_prompt: string, 
+    original_prompt: string;
+    additional_text: string;
 }
 
 export interface ResultData extends Inputs {
@@ -58,4 +61,7 @@ export interface ResultProps {
 
 export interface PromptInputData {
     onsubmit: (data: Inputs) => void;
+}
+export interface HistorySidebarProps {
+    history: ResultData[];
 }

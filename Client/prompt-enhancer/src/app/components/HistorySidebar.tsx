@@ -1,10 +1,7 @@
-import { ResultData } from './types'; // ✅ Import ResultData type
+import { HistorySidebarProps, ResultData } from './types'; // ✅ Import ResultData type
 import { copyToClipboard } from './utils/clipboardUtils'; // Import the utility function
 import { CopyIcon } from './utils/icons';
 
-export interface HistorySidebarProps {
-    history: ResultData[];
-}
 
 const HistorySidebar = ({ history }: HistorySidebarProps) => {
 
@@ -17,7 +14,7 @@ const HistorySidebar = ({ history }: HistorySidebarProps) => {
             <div className='border-b-2 border-black mb-3'>
                 <h1 className='text-2xl pb-1'>History</h1>
             </div>
-            <div className='overflow-y-auto max-h-[80vh]'>
+            <div className=''>
                 {history.length === 0 ? (
                     <p className='text-gray-600'>No history yet</p>
                 ) : (

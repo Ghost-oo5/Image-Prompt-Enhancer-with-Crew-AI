@@ -1,0 +1,7 @@
+{
+	"dependencies": {
+		"react-datepicker": "^8.1.0",
+		"react-datetime": "^3.3.1",
+		"react-timestamp": "^6.0.0"
+	}
+}
