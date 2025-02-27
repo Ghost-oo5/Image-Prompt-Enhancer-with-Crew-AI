@@ -5,41 +5,39 @@ prompt_engineer_task:
     For the selected AI model: {selected_model}
     Image Type: {image_type}
     Dimensions: {image_dimensions}
+    Image Option: {image_option}
 
     Your task is to:
-    1. Analyze the original prompt and image type requirements
-    2. Structure an enhanced prompt following the model-specific guidelines
-    3. Format the negative prompt according to the selected model's syntax
-    4. Add appropriate technical parameters and settings
-    5. Ensure all text is properly formatted and spelled correctly
+    1. Analyze the original prompt and image type requirements.
+    2. Structure an enhanced prompt following the model-specific guidelines.
+    3. Format the negative prompt according to the selected model's syntax.
+    4. Add appropriate technical parameters and settings.
+    5. Ensure all text is properly formatted and spelled correctly.
 
     Image Type-Specific Guidelines:
+    - **Realism-Based Images**: Focus on lighting, shadows, and real-world details.
+    - **Artistic & Stylized Images**: Specify art style, line work, and color palette.
+    - **Abstract & Surreal Images**: Focus on mood, atmosphere, and impossible elements.
+    - **Graphics Design**: Centered subjects with dynamic poses or engaging layouts.
 
-    Realism-Based Images:
-    - Photorealistic: Focus on lighting, shadows, and real-world details
-    - Hyperrealistic: Emphasize extreme detail, textures, and surface qualities
-    - AI-Enhanced Realism: Balance realism with subtle AI enhancements
+    Model-Specific Guidelines:
+    - **Ideogram**: Use detailed descriptions and style keywords. Specify the desired style and include technical parameters.
+    - **Recraft**: Clearly define the subject and action. Specify the desired style and include details about the scene.
+    - **Midjourney**: Use detailed descriptions and style keywords. Include relevant parameters.
+    - **Stable Diffusion**: Create longer, detailed prompts. Include negative prompts in a dedicated field.
+    - **Leonardo AI**: Create a single, flowing paragraph for the main prompt.
+    - **DALL-E**: Keep prompts concise and clear. Include negative elements inline.
+    - **Adobe Firefly**: Use creative concepts.
 
-    Artistic & Stylized Images:
-    - Illustrations: Specify art style, line work, and color palette
-    - Concept Art: Include environment details, character design elements
-    - Cartoon & Anime: Define style references and characteristic features
-    - Pixel Art: Specify resolution and color limitations
-    - Oil Painting/Watercolor/Sketch: Include medium-specific techniques
-
-    Abstract & Surreal Images:
-    - Dreamlike/Fantasy: Focus on mood, atmosphere, and impossible elements
-    - Glitch/Cyberpunk: Include digital artifacts, neon elements
-    - Geometric/Minimalist: Emphasize shapes, patterns, and simplicity
-
-    Graphics Design:
-    - **Focus**: Centered subjects with dynamic poses or engaging layouts.
-    - **Color Scheme**: Use vibrant and contrasting colors to attract attention.
-    - **Background**: Should complement the main subject, using gradients or subtle patterns.
-    - **Text Elements**: Clear, bold, and easy to read; should convey the message effectively.
-    - **Style**: Combine digital art with graphic design principles, ensuring a clean and organized layout.
-    - **Call to Action**: Prominent and visually distinct to encourage user interaction.
-    - **Visual Elements**: Incorporate relevant icons or graphics that enhance the message.
+    Image Option Guidelines:
+    - **Background Image**: Focus on creating a visually appealing background that complements the main subject. **Do not include any text in the background image.**
+      - **Negative Prompt**: "Exclude any text or logos in the background."
+    - **Title Image**: Ensure the title image is striking and captures the essence of the content. **Text may be included, but it should be minimal and relevant.**
+      - **Negative Prompt**: "Avoid cluttered text or excessive wording."
+    - **Thumbnail Image**: Create a thumbnail that is eye-catching and represents the content effectively. **Text should be concise and not overpower the image.**
+      - **Negative Prompt**: "Do not use small or hard-to-read text."
+    - **Full-Size Image**: Generate a high-resolution image suitable for detailed viewing. **Avoid adding any text unless specified.**
+      - **Negative Prompt**: "Exclude any text or annotations."
 
     Informational & Infographics:
     - Diagrams & Charts: Request clear layout and data visualization
@@ -51,61 +49,6 @@ prompt_engineer_task:
     - UI/UX Mockups: Include device context and interface elements
     - 3D Renders: Specify lighting, materials, and camera angles
     - AI-Generated Faces: Define demographic details and expressions
-
-    Model-Specific Guidelines:
-
-    Midjourney:
-    - Use detailed descriptions and style keywords
-    - Include relevant parameters (--s, --chaos, --ar, --quality)
-    - Reference artistic styles or artists
-    - For negative prompts, use "--no" prefix for each element
-
-    Stable Diffusion:
-    - Create longer, detailed prompts
-    - Include negative prompts in a dedicated field (e.g., "negative_prompt: blurry, low-quality")
-    - Use a sufficiently high **CFG scale** (e.g., 7–12) and enough **sampling steps** to achieve desired detail. If your interface allows custom parameters, include them accordingly.
-
-    Leonardo AI:
-    - Create a single, flowing paragraph for the main prompt
-    - Add negative prompts in a separate section prefixed with "Negative:"
-    - Writing style guidelines:
-      * Combine all elements into one cohesive, flowing description
-      * Keep descriptions tight and impactful
-      * Use commas and connecting words to link ideas smoothly
-      * Avoid separate paragraphs or numbered sections
-      * Balance technical and emotional elements in natural language
-      * Focus on the most striking visual elements
-    - Key elements to weave together:
-      * Subject details and actions
-      * Lighting and atmosphere
-      * Environmental context
-      * Visual style and technical aspects
-      * Emotional impact
-    - Example structure:
-      "[Subject details], [scene setting], [technical aspects], [emotional elements]"
-      All flowing naturally as one continuous description
-
-    DALL-E:
-    - Keep prompts concise and clear
-    - Include negative elements with "no" or "without" in the main prompt
-    - Only specify art medium if mentioned in original prompt
-    - Focus on composition and details
-    - Use descriptive adjectives for mood and atmosphere
-
-    Adobe Firefly:
-    - Use creative, imaginative concepts
-    - Include negative elements inline with "exclude" or "without" (e.g., "A portrait --exclude text")
-    - Include text effects and color palettes
-    - Optimize for Adobe tool integration
-
-    Additional Guidelines for Infographics:
-    - Explicitly request clear, legible text
-    - Specify "with correct spelling and grammar"
-    - For text-heavy designs, break down text elements clearly
-    - Request professional typography and layout
-    - Example infographic structure:
-      "Create a professional infographic with clear, correctly spelled text showing [content],
-      featuring legible typography, proper spacing, and accurate labels"
 
     Platform-Specific Image Dimensions & Guidelines:
 

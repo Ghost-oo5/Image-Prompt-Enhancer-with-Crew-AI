@@ -22,20 +22,24 @@ def get_ai_model_choice():
         print("3. Leonardo AI")
         print("4. DALL-E")
         print("5. Adobe Firefly")
+        print("6. Ideogram")
+        print("7. Recraft")
         
         try:
-            choice = int(input("\nEnter your choice (1-5): "))
-            if 1 <= choice <= 5:
+            choice = int(input("\nEnter your choice (1-7): "))
+            if 1 <= choice <= 7:
                 models = {
                     1: "Midjourney",
                     2: "Stable Diffusion",
                     3: "Leonardo AI",
                     4: "DALL-E",
-                    5: "Adobe Firefly"
+                    5: "Adobe Firefly",
+                    6: "Ideogram",
+                    7: "Recraft"
                 }
                 return models[choice]
             else:
-                print("Please enter a number between 1 and 5.")
+                print("Please enter a number between 1 and 7.")
         except ValueError:
             print("Please enter a valid number.")
 
@@ -122,10 +126,13 @@ def get_image_type_choice(dimensions):
         print("   - Graphics Design")
         print("   - Blog Thumbnail")
         
+        print("\n6. Ideogram Specific")
+        print("\n7. Recraft Specific")
+        
         try:
-            main_choice = int(input("\nEnter main category (1-5): "))
-            if not 1 <= main_choice <= 5:
-                print("Please enter a number between 1 and 5.")
+            main_choice = int(input("\nEnter main category (1-7): "))
+            if not 1 <= main_choice <= 7:
+                print("Please enter a number between 1 and 7.")
                 continue
                 
             subcategories = {
@@ -133,7 +140,9 @@ def get_image_type_choice(dimensions):
                 2: ["Photorealistic", "Hyperrealistic", "AI-Enhanced Realism"],
                 3: ["Illustrations", "Concept Art", "Cartoon & Anime", "Pixel Art", "Oil Painting/Watercolor/Sketch"],
                 4: ["Dreamlike / Fantasy", "Glitch / Cyberpunk", "Geometric / Minimalist"],
-                5: ["Logos & Branding", "UI/UX Mockups", "Infographics", "Product Presentations", "Corporate Banners", "Graphics Design", "Blog Thumbnail"]
+                5: ["Logos & Branding", "UI/UX Mockups", "Infographics", "Product Presentations", "Corporate Banners", "Graphics Design", "Blog Thumbnail"],
+                6: ["Infographic", "Diagram & Chart", "Ideogram Specific"],
+                7: ["Social Media Ads", "Promotional Graphics", "Brand Assets"]
             }
             
             print("\nSelect specific style:")
@@ -196,10 +205,22 @@ def run():
     dimensions = get_dimensions_choice()
     selected_model = get_ai_model_choice()
     image_type = get_image_type_choice(dimensions)
-    
+    image_option = input("Select Image Option (Background, Title, Thumbnail, FullSize): ")
+
+    # Construct the final negative prompt
+    if image_option == "Background":
+        negative_prompt += " Exclude any text or logos in the background."
+    elif image_option == "Title":
+        negative_prompt += " Avoid cluttered text or excessive wording."
+    elif image_option == "Thumbnail":
+        negative_prompt += " Do not use small or hard-to-read text."
+    elif image_option == "FullSize":
+        negative_prompt += " Exclude any text or annotations."
+
     print(f"\nSelected Dimensions: {dimensions['pixels'] if isinstance(dimensions, dict) else dimensions}")
     print(f"Selected Model: {selected_model}")
     print(f"Selected Image Type: {image_type}")
+    print(f"Selected Image Option: {image_option}")
     print("\nProcessing...\n")
 
     inputs = {
@@ -207,7 +228,8 @@ def run():
         "prompt": prompt,
         "negative_prompt": negative_prompt if negative_prompt else "None",
         "selected_model": selected_model,
-        "image_type": image_type
+        "image_type": image_type,
+        "image_option": image_option
     }
 
     try:
@@ -229,6 +251,7 @@ def run():
             f.write(f"- **Negative Prompt:** {negative_prompt}\n")
             f.write(f"- **Selected Model:** {selected_model}\n")
             f.write(f"- **Image Type:** {image_type}\n")
+            f.write(f"- **Image Option:** {image_option}\n")
             f.write(f"- **Dimensions:** {dimensions['pixels'] if isinstance(dimensions, dict) else dimensions}\n\n")
             
             f.write("## Generated Output\n")

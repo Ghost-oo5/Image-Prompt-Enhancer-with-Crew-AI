@@ -4,6 +4,8 @@ export const Models = {
     LeonardoAI: "LeonardoAI",
     Dall_E: "Dall-E",
     AdobeFirefly: "AdobeFirefly",
+    Ideogram: "Ideogram",
+    Recraft: "Recraft",
 } as const;
 
 export const ImageTypes = {
@@ -30,6 +32,8 @@ export const ImageTypes = {
     Advertisement: "Advertisement",
     GraphicsDesign: "Graphics Design",
     BlogThumbnail: "Blog Thumbnail",
+    IdeogramSpecific: "Ideogram Specific",
+    RecraftSpecific: "Recraft Specific",
 } as const;
 
 export const Dimensions = {
@@ -39,6 +43,13 @@ export const Dimensions = {
     Standard: "Standard (varies)",
 } as const;
 
+export const ImageOptions = {
+    Background: "Background Image",
+    Title: "Title Image",
+    Thumbnail: "Thumbnail Image",
+    FullSize: "Full-Size Image",
+} as const;
+
 export interface Inputs {
     prompt: string;
     negative_prompt: string;
@@ -46,6 +57,7 @@ export interface Inputs {
     enhanced_prompt: string;
     selected_model: string;
     image_dimensions: keyof typeof Dimensions;
+    image_option: keyof typeof ImageOptions;
     original_prompt: string;
     additional_text: string;
 }

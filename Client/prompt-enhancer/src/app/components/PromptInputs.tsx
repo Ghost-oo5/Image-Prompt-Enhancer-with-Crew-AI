@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
-import { Inputs, Models, ImageTypes, Dimensions } from './types'
+import { Inputs, Models, ImageTypes, Dimensions, ImageOptions } from './types'
 import { PromptInputData } from './types'
 import axios from 'axios'
 
@@ -68,6 +68,13 @@ const PromptInputs = ({ onsubmit }: PromptInputData) => {
                         <select id="dimensions" className='Dropdown' {...register('image_dimensions', { required: false })}>
                             <option value="">Select Dimensions</option>
                             {Object.keys(Dimensions).map((key) => (
+                                <option key={key} value={key}>{key.replace(/_/g, " ")}</option>
+                            ))}
+                        </select>
+                        {/* New Image Options Dropdown */}
+                        <select id="imageOptions" className='Dropdown' {...register('image_option', { required: false })}>
+                            <option value="">Select Image Option</option>
+                            {Object.keys(ImageOptions).map((key) => (
                                 <option key={key} value={key}>{key.replace(/_/g, " ")}</option>
                             ))}
                         </select>

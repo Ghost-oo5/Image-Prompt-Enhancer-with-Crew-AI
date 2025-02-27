@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://image-prompt-enhancer-with-crew-ai.vercel.app"],
+    allow_origins=["*"],  # Allow all origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -21,6 +21,7 @@ class PromptData(BaseModel):
     selected_model: Optional[str] = None
     image_type: Optional[str] = None
     image_dimensions: Optional[str] = None
+    image_option: Optional[str] = None
 
 
 @app.post("/api/enhance")
@@ -33,6 +34,7 @@ async def enhance_prompt(data: PromptData):
         "selected_model": data.selected_model,
         "image_type": data.image_type,
         "image_dimensions": data.image_dimensions,
+        "image_option": data.image_option,
     }
 
     crew_instance = LatestAiDevelopment()
@@ -50,6 +52,7 @@ async def enhance_prompt(data: PromptData):
             "selected_model": data.selected_model,
             "image_type": data.image_type,
             "image_dimensions": data.image_dimensions,
+            "image_option": data.image_option,
         }
     except Exception as e:
         return {"error": str(e)}
